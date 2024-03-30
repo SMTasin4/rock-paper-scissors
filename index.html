@@ -4,11 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js.js"></script>
+    
     <link rel="stylesheet" href="styles.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div id="home-page">
+        <div id="nav-bar">
+            <div id="nav-left">
+                <img id="logo" src="./images/rock-paper-scissors.png" alt="">
+                <div id="logo-name">R.P.S</div>
+
+            </div>
+            <div id="nav-right">
+                <ul>
+                    <li id="home">
+                        <a href="">Home</a>
+                    </li>
+                    <li id="home">
+                        <a href="">About</a>
+                    </li>
+                    <li id="home">
+                        <a href="">Contact</a>
+                    </li>
+                    <li id="home">
+                        <a href="">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="hero-content">
+            <div id="hero-left">
+                <div id="hero-quote">
+                    Failure doesn’t mean the game is over, it means try again with experience
+                </div>
+                <div id="hero-description">
+                    Remember, failure is not a reflection of your worth or potential. It's merely an indication that a particular approach or strategy didn't work as expected. Embrace failure as an opportunity to grow, adapt, and come back stronger
+                </div>
+                <div id="buttons">
+                    <button class="pvc" id="pvc"><a href="#game-page">Player Vs Computer</a></button>
+                    <button class="pvc" id="pvp">PLayer Vs PLayer</button>
+                </div>
+            </div>
+            <div id="hero-right">
+                <img src="./images/MV5BMWNjNjYwYWUtYWQxZS00MjcwLTg4YzYtNzQxOTM1NmUwNzk5XkEyXkFqcGdeQXVyMTI1OTg1MTQ2._V1_FMjpg_UX1000_.jpg" alt="">
+            </div>
+        </div>
+       
+    </div>
+    <div id="game-page">
+        <div id="score-box" class="boxs">
+            <div class="score">
+                <div>Player</div>
+                <div id="playerNumber">0</div>
+            </div>
+            <div class="score">
+                <div>Computer</div>
+                <div id="computerNumber">0</div>
+            </div>
+        </div>
+        <div id="pcbox">
+            <div id="player-box" class="boxs">Player    
+            </div>
+            <div id="computer-box" class="boxs">Computer
+            </div>  
+        </div>
+    </div>
+    <ul id="game-btns">
+        <button id="rock"class="pvc game">Rock</button>
+        <button id="paper"class="pvc game">Paper</button>
+        <button id="scissors"class="pvc game">Scissors</button>
+    </ul>
+    <div id="exit">
+        <button class="pvc game exit">Exit</button>
+    </div>
+    <script src="./js.js" defer></script>
 </body>
 </html>

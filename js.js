@@ -1,78 +1,114 @@
-let playerScore=0
-let computerScore=0
+let playerChoice = ''
+
+let playerScore= 0
+let computerScore = 0
+const playerNumber = document.querySelector('#playerNumber')
+const computerNumber = document.querySelector('#computerNumber')
+const pvc_btn = document.querySelector('#pvc')
+const playerBox = document.querySelector('#player-box')
+const computerBox = document.querySelector('#computer-box')
+pvc_btn.addEventListener('click',()=>{
+    // console.log('pvc button pressed')
+})
+const getPlayerChoice = document.querySelector('#game-btns')
+getPlayerChoice.addEventListener('click',(e)=>{
+    if(e.target.matches('button')){
+        playerChoice = e.target.innerText.toLowerCase()
+        round(getComputerChoice(),playerChoice)
+        
+    }
+    
+})
 function getComputerChoice(){
-    let options = ['rock','paper','scissors']
-    let computerChoice = options[(Math.floor(Math.random() * 3))]
+    var choices = ["rock", "paper", "scissors"];
+    var computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    //console.log(computerChoice)
+    computerImgholder(computerChoice)
     return computerChoice
 }
-
-function getPlayerChoice(){
-    let playerChoice = prompt('Between ROCK, PAPERS & SCISSORS choose one!').toLocaleLowerCase();
-    return playerChoice
-}
-
-for(let i =1;i<6;i++){
+function computerImgholder(computerChoice){
+    if (computerChoice =='rock'){
+        const rockImgholder = document.createElement('img')
+        computerBox.appendChild(rockImgholder)
+        rockImgholder.setAttribute('src','./images/rock.png')   
+    }
+    else if (computerChoice == 'paper'){
+        const paperImgholder = document.createElement('img')
+        computerBox.appendChild(paperImgholder)
+        paperImgholder.setAttribute('src','./images/paper.png')   
+    }
+    else if(computerChoice=='scissors'){
+        const scissorsImgholder = document.createElement('img')
+        computerBox.appendChild(scissorsImgholder)
+        scissorsImgholder.setAttribute('src','./images/scissors.png') 
+        updateComputerScore()
+    }
     
-    let computerChoice = getComputerChoice()
-    let playerChoice = getPlayerChoice()
-    round(computerChoice,playerChoice)
-    console.log(`player-score=${playerScore}`)
-    console.log(`computer-score=${computerScore}`)
-    
 }
-
 function updatePlayerScore(){
     playerScore++
+    playerNumber.textContent = playerScore;
 }
 function updateComputerScore(){
     computerScore++
+    computerNumber.textContent = computerScore;
 }
-function round(computerChoice,playerChoice){
-  
-    switch (computerChoice){
-        case 'rock':{
-            if (playerChoice =='rock'){
-                alert("you chose rock and computer chose rock.It's a draw. Try again")
+function round(computerChoice, playerChoice) {
+    switch (computerChoice) {
+        case 'rock': {
+            if (playerChoice == 'rock') {
+                const rockImgholder = document.createElement('img');
+                playerBox.appendChild(rockImgholder);
+                rockImgholder.setAttribute('src', './images/rock.png');
+            } else if (playerChoice == 'paper') {
+                const paperImgholder = document.createElement('img');
+                playerBox.appendChild(paperImgholder);
+                paperImgholder.setAttribute('src', './images/paper.png');
+                updatePlayerScore();  // Modified: Update player score
+            } else if (playerChoice == 'scissors') {
+                const scissorsImgholder = document.createElement('img');
+                playerBox.appendChild(scissorsImgholder);
+                scissorsImgholder.setAttribute('src', './images/scissors.png');
+                updateComputerScore();  // Modified: Update computer score
             }
-            else if (playerChoice == 'paper'){
-                alert("you chose paper and computer chose rock.You win")
-                updatePlayerScore()
-            }
-            else if(playerChoice=='scissors'){
-                alert("you chose scissors and computer chose rock.computer wins")
-                updateComputerScore()
-            }
-        }
             break;
-
-        case 'paper':{
-            if (playerChoice =='paper'){
-                alert("you chose paper and computer chose paper.It's a draw. Try again")
-            }
-            else if (playerChoice == 'scissors'){
-                alert("you chose scissors and computer chose paper.You win")
-                updatePlayerScore()
-            }
-            else if(playerChoice=='rock'){
-                alert("you chose rock and computer chose paper.computer wins")
-                updateComputerScore()
-            }
         }
+        case 'paper': {
+            if (playerChoice == 'paper') {
+                const paperImgholder = document.createElement('img');
+                playerBox.appendChild(paperImgholder);
+                paperImgholder.setAttribute('src', './images/paper.png');
+            } else if (playerChoice == 'scissors') {
+                const scissorsImgholder = document.createElement('img');
+                playerBox.appendChild(scissorsImgholder);
+                scissorsImgholder.setAttribute('src', './images/scissors.png');
+                updatePlayerScore();  // Modified: Update player score
+            } else if (playerChoice == 'rock') {
+                const rockImgholder = document.createElement('img');
+                playerBox.appendChild(rockImgholder);
+                rockImgholder.setAttribute('src', './images/rock.png');
+                updateComputerScore();  // Modified: Update computer score
+            }
             break;
-        case 'scissors':{
-            if (playerChoice == 'scissors'){
-                alert("you chose scissors and computer chose scissors.It's a draw. Try again")
-            }
-            else if (playerChoice == 'rock'){
-                alert("you chose rock and computer chose scissors.You win")
-                updatePlayerScore()
-            }
-            else if(playerChoice=='paper'){
-                alert("you chose paper and computer chose scissors.computer wins")
-                updateComputerScore()
-            }
         }
+        case 'scissors': {
+            if (playerChoice == 'scissors') {
+                const scissorsImgholder = document.createElement('img');
+                playerBox.appendChild(scissorsImgholder);
+                scissorsImgholder.setAttribute('src', './images/scissors.png');
+            } else if (playerChoice == 'rock') {
+                const rockImgholder = document.createElement('img');
+                playerBox.appendChild(rockImgholder);
+                rockImgholder.setAttribute('src', './images/rock.png');
+                updatePlayerScore();  // Modified: Update player score
+            } else if (playerChoice == 'paper') {
+                const paperImgholder = document.createElement('img');
+                playerBox.appendChild(paperImgholder);
+                paperImgholder.setAttribute('src', './images/paper.png');
+                updateComputerScore();  // Modified: Update computer score
+            }
             break;
+        }
     }
 }
 
